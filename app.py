@@ -4,11 +4,11 @@ import google.generativeai as genai
 st.title("🤖 Gemini Chat")
 
 # API key input
-api_key = st.sidebar.text_input("Gemini API Key", type="password")
+api_key = "AIzaSyCeKovXO2BQbfROxemgRfycFzyRNl3TM3E"
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     
     # Initialize chat history
     if "messages" not in st.session_state:
