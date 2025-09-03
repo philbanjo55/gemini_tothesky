@@ -7,7 +7,7 @@ import os
 st.title("烙 Gemini Chat with Video & Image Support")
 
 # API key input
-api_key = st.sidebar.text_input("Gemini API Key", type="password")
+api_key = "AIzaSyCeKovXO2BQbfROxemgRfycFzyRNl3TM3E"
 
 if api_key:
     genai.configure(api_key=api_key)
