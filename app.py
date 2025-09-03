@@ -4,7 +4,7 @@ from PIL import Image
 import tempfile
 import os
 
-st.title("烙 Gemini Chat with Video & Image Support")
+st.title("🤖 Gemini Chat with Video & Image Support")
 
 # API key input
 api_key = st.sidebar.text_input("Gemini API Key", type="password")
@@ -28,7 +28,7 @@ if api_key:
                 st.video(message["content"])
     
     # File upload section
-    st.sidebar.markdown("###  Upload Files")
+    st.sidebar.markdown("### 📎 Upload Files")
     uploaded_files = st.sidebar.file_uploader(
         "Choose images or videos", 
         type=['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'mp4', 'mov', 'avi', 'wmv'],
@@ -72,7 +72,7 @@ if api_key:
                     # Wait for video to be processed
                     import time
                     while video_file.state.name == "PROCESSING":
-                        st.info(" Video is still processing, please wait...")
+                        st.info("🔄 Video is still processing, please wait...")
                         time.sleep(2)
                         video_file = genai.get_file(video_file.name)
                     
@@ -105,7 +105,7 @@ if api_key:
         with st.chat_message("user"):
             st.write(prompt)
             if uploaded_files:
-                st.write(f" {len(uploaded_files)} file(s) attached")
+                st.write(f"📎 {len(uploaded_files)} file(s) attached")
         
         # Get and display Gemini response
         with st.chat_message("assistant"):
@@ -126,7 +126,7 @@ if api_key:
                     st.info("Make sure your files are supported formats and try again.")
     
     # Clear chat button
-    if st.sidebar.button("️ Clear Chat"):
+    if st.sidebar.button("🗑️ Clear Chat"):
         st.session_state.messages = []
         st.rerun()
 
@@ -135,13 +135,13 @@ else:
     st.info("For production use, consider using environment variables or user input for security.")
     
     st.markdown("""
-    ###  What you can do with this app:
+    ### 🎯 What you can do with this app:
     - **Chat**: Ask questions in natural language
     - **Images**: Upload photos and ask questions about them
     - **Videos**: Upload videos and get analysis/descriptions
     - **Mixed**: Combine text, images, and videos in one conversation
     
-    ###  Supported formats:
+    ### 📋 Supported formats:
     - **Images**: PNG, JPG, JPEG, GIF, BMP, WebP
     - **Videos**: MP4, MOV, AVI, WMV
     """)
